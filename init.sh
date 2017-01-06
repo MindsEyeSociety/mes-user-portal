@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo 'Delaying for MySQL.'
-sleep 10
-
 echo 'Running migration.'
 knex migrate:latest
 

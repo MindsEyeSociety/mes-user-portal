@@ -12,4 +12,4 @@ WORKDIR /app
 
 RUN npm install
 
-CMD ["./init.sh"]
+CMD forever app.js
