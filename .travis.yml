@@ -12,3 +12,6 @@ before_script:
   - knex seed:run
 services:
   - mysql
+cache:
+    directories:
+        - node_modules
