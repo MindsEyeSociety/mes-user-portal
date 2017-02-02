@@ -5,14 +5,16 @@ Allows accessing and manipulation of offices.
 Provides information about an office.
 
 __Params__
+
 * `{id}` - Required. Integer ID of office.
+
 * `token` - Required. Parameter or cookie of user token.
 
 __Responses__
 
 * __Code__: 200<br>
-  __Content__:
-```json
+  __Content__:<br>
+```
 {
 	"id":1,
 	"name":"National Coordinator",
@@ -62,13 +64,14 @@ __Responses__
 Provides an array of the current user offices.
 
 __Params__
+
 * `token` - Required. Parameter or cookie of user token.
 
 __Responses__
 
 * __Code__: 200<br>
-  __Content__:
-```json
+  __Content__:<br>
+```
 [
 	{
 		"id":7,
@@ -98,12 +101,17 @@ __Content__: `{ user_read_private: 'Read private user data', [...] }`
 Updates data for a given office.
 
 __Params__
+
 * `id` - Required. ID of office to change.
+
 * `token` - Required. Parameter or cookie of user token. Needs `office_update` role over office.
 
 __Body__
+
 * `name` - Name of office.
+
 * `email` - The office email.
+
 * `roles` - Array of roles.
 
 __Responses__
@@ -124,8 +132,11 @@ __Content__: `{ status: 400, message: 'Invalid data provided: [errors]' }`
 Assigns an office to a given user, or vacates an office. Holder of office can use this to resign.
 
 __Params__
+
 * `{id}` - Required. ID of office to assign.
+
 * `{user}` - Required. ID of user to be assigned, or zero to vacate.
+
 * `token` - Required. Parameter or cookie of user token. Needs `office_assign` role over office.
 
 __Responses__
@@ -152,12 +163,17 @@ __Content__: `{ status: 500, message: 'Office already vacant' }`
 Creates an assistant office for a given primary one.
 
 __Params__
+
 * `{id}` - Required. ID of parent office.
+
 * `token` - Required. Parameter or cookie of user token. Needs `office_create_assistants` role over office, or `office_create_own_assistants` for self.
 
 __Body__
+
 * `name` - Required. Name of office.
+
 * `email` - The office email.
+
 * `roles` - Array of roles.
 
 __Responses__
@@ -182,7 +198,9 @@ __Content__: `{ status: 400, message: 'Invalid data provided: [errors]' }`
 Deletes an assistant office.
 
 __Params__
+
 * `{id}` - Required. ID of assistant office to delete.
+
 * `token` - Required. Parameter or cookie of user token. Needs `office_create_assistants` role over office, or `office_create_own_assistants` for self.
 
 __Responses__
@@ -201,8 +219,11 @@ __Content__: `{ status: 400, message: 'Office is not an assistant' }`
 _Internal endpoint only_. Verifies the user has a given role over an org unit.
 
 __Params__
+
 * `{unit}` - Required. ID of org unit to check.
+
 * `roles` - Required. Comma separated list of roles to verify.
+
 * `token` - Required. Parameter or cookie of user token.
 
 __Responses__
@@ -221,8 +242,11 @@ __Content__: `{ status: 403, message: {mixed} }`
 _Internal endpoint only_. Verifies the user has a given role over a user.
 
 __Params__
+
 * `{user}` - Required. ID of user to check.
+
 * `roles` - Required. Comma separated list of roles to verify.
+
 * `token` - Required. Parameter or cookie of user token.
 
 __Responses__
@@ -241,8 +265,11 @@ __Content__: `{ status: 403, message: {mixed} }`
 _Internal endpoint only_. Verifies the user has a given role over an office.
 
 __Params__
+
 * `{office}` - Required. ID of office to check.
+
 * `roles` - Required. Comma separated list of roles to verify.
+
 * `token` - Required. Parameter or cookie of user token.
 
 __Responses__

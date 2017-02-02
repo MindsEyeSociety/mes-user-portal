@@ -5,19 +5,26 @@ Allows accessing and manipulating organizational units.
 Provides a list of org units, with optional filtering.
 
 __Params__
+
 * `token` - Required. Parameter or cookie of user token.
+
 * `type` - Type of org unit to show.
+
 * `venue` - Venue type.
+
 * `code` - Search of codes. Cannot be venue `type`.
+
 * `name` - Search of names.
+
 * `limit` - Integer. Number of results to return, defaults to 100.
+
 * `offset` - Integer. Offset for results, defaults to 0.
 
 __Responses__
 
 * __Code__: 200<br>
-__Content__: Array of org unit objects.
-```json
+__Content__: Array of org unit objects.<br>
+```
 [
 	{
 		"id": 1,
@@ -49,14 +56,16 @@ __Content__: `{ status: 400, message: 'Search failed' }`
 Provides details about a given org unit.
 
 __Params__
+
 * `{id}` - Required. Can be the numeric ID, the code for non-venues, or "me" for the current user's associated org unit.
+
 * `token` - Required. Parameter or cookie of user token.
 
 __Responses__
 
 * __Code__: 200<br>
-__Content__: Details of org unit.
-```json
+__Content__: Details of org unit.<br>
+```
 {
 	"unit":{
 		"id":1,
@@ -66,9 +75,7 @@ __Content__: Details of org unit.
 		"website":"http://mindseyesociety.org",
 		"type":"Nation",
 		"defDoc":null,
-		"users":[
-
-		],
+		"users":[],
 		"offices":[
 			{
 				"id":1,
@@ -112,17 +119,27 @@ __Content__: `{ status: 404, message: 'Org unit not found' }`
 Creates a new org unit, along with the given offices.
 
 __Params__
+
 * `token` - Required. Parameter or cookie of user token. Needs `org_create_{type}` role, with `{type}` being the org unit type being created.
 
 __Body__
+
 * `type`: Required. The type of unit.
+
 * `parentID`: Required. The parent ID of the unit.
+
 * `name`: Required. Unit name.
+
 * `code`: Required except for venue type. The code for the unit.
+
 * `venueType`: Required for venue type. The two-letter code for a given venue.
+
 * `location`: Location of the venue.
+
 * `defDoc`: A definition doc, such as a VSS or domain info.
+
 * `website`: A URL to find the org unit at.
+
 * `id`: The org unit ID. Should not normally be specified.
 
 __Responses__
@@ -161,14 +178,21 @@ __Content__: `{ status: 500, message: 'There was an error creating the org unit'
 Updates an org unit.
 
 __Params__
+
 * `{id}` - Required. Can be the numeric ID, the code for non-venues, or "me" for the current user's associated org unit.
+
 * `token` - Required. Parameter or cookie of user token. Needs `org_update` role over unit.
 
 __Body__
+
 * `name`: Unit name.
+
 * `code`: Ignored for venue type. The code for the unit.
+
 * `location`: Location of the venue.
+
 * `defDoc`: A definition doc, such as a VSS or domain info.
+
 * `website`: A URL to find the org unit at.
 
 __Responses__
@@ -192,7 +216,9 @@ __Content__: `{ status: 400, message: 'Invalid data provided: [errors]' }`
 Deletes an org unit, and associated offices. Users attached to the unit are moved to the parent.
 
 __Params__
+
 * `{id}` - Required. Can be the numeric ID, the code for non-venues, or "me" for the current user's associated org unit.
+
 * `token` - Required. Parameter or cookie of user token. Needs `org_create_{type}` role over the unit, with `{type}` being the org unit type being created.
 
 __Responses__
