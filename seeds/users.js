@@ -81,7 +81,7 @@ exports.seed = ( knex, Promise ) => {
 			{
 				id: 8,
 				portalID: 375,
-				firstName: 'Ephraim',
+				firstName: 'Echo',
 				lastName: 'Gregor',
 				email: 'ephraimgregor@gmail.com',
 				membershipType: 'Full',
