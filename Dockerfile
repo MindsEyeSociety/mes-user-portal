@@ -1,5 +1,5 @@
 FROM node:7.3
-MAINTAINER Ephraim Gregor "nta@mindseyesociety.org"
+MAINTAINER Echo Gregor "nta@mindseyesociety.org"
 
 RUN npm install -g nodemon knex forever
 

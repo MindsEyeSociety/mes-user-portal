@@ -1,6 +1,6 @@
 /**
  * Grunt dev helper and validator.
- * @author Ephraim Gregor
+ * @author Echo Gregor
  */
 
 module.exports = grunt => {

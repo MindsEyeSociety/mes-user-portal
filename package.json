@@ -6,7 +6,7 @@
     "start": "node app.js",
     "test": "./test.sh"
   },
-  "author": "Ephraim Gregor",
+  "author": "Echo Gregor",
   "license": "ISC",
   "repository": "https://github.com/MindsEyeSociety/mes-user-portal",
   "dependencies": {
